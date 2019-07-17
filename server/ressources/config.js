@@ -20,7 +20,6 @@ module.exports = {
 					user: process.env.PROD_DB_USERNAME,
 					password: process.env.PROD_DB_PASS
 				}
-				config = process.env.PROD;
 				break;
 			case 'dev':
 				config = {
