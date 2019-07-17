@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ressourc/public_html/client.kompassmedia.ca #Add /<sub_folder> if required
+    - export DEPLOYPATH=/home/ressourc/client.kompassmedia.ca #Add /<sub_folder> if required
     - /bin/cp -r * $DEPLOYPATH
