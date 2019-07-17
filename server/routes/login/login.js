@@ -14,7 +14,7 @@ router.get('/', isLogged, (req, res) => {
 	if (user_name && user_pass) {
 
 		let get_user = `select ID,user_name,user_email
-		from ${database_prefix}users
+		from ${config.database_prefix()}users
 		where user_name = ?
 		and user_pass = ?`;
 
