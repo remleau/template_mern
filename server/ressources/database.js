@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const config = require('./config');
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
@@ -16,7 +17,7 @@ database.connect((err) => {
         console.log(err);
     }
 
-    let createUsers = `create table if not exists ${database_prefix}users(
+    let createUsers = `create table if not exists ${config.database_prefix()}users(
         ID int primary key auto_increment,
         user_name varchar(255)not null,
         user_pass varchar(255) not null,

@@ -3,7 +3,10 @@ const router = express.Router();
 
 const jwt = require('jsonwebtoken');
 
-router.get('/', (req, res) => {
+const config = require('./../../../server/ressources/config');
+const isLogged = require('./../../../server/middleware/logged');
+
+router.get('/', isLogged, (req, res) => {
 
 	let user_name = req.body.user_name || 'test';
 	let user_pass = req.body.user_pass || 'test';
@@ -33,7 +36,7 @@ router.get('/', (req, res) => {
 				};
 				let token = jwt.sign( user, process.env.jwt_secret, { expiresIn: (process.env.token_lifetime/1000) });
 				res.cookie('token', token, {maxAge: process.env.token_lifetime});
-				res.redirect('/dashboard');
+				res.redirect(config.dashboard_route());
 
 			}
 
