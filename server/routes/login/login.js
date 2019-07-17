@@ -22,23 +22,23 @@ router.get('/', isLogged, (req, res) => {
 
     	if (err) {
 
-				console.log(err.message);
-				res.status(400).send({
-					message: err.message
-				});
+			console.log(err.message);
+			res.status(400).send({
+				message: err.message
+			});
 
     	}else{
 
-				let user = {
-					user_id: results[0].ID,
-					user_name: results[0].user_name,
-					user_email: results[0].user_email,
-				};
-				let token = jwt.sign( user, process.env.jwt_secret, { expiresIn: (process.env.token_lifetime/1000) });
-				res.cookie('token', token, {maxAge: process.env.token_lifetime});
-				res.redirect(config.dashboard_route());
+			let user = {
+				user_id: results[0].ID,
+				user_name: results[0].user_name,
+				user_email: results[0].user_email,
+			};
+			let token = jwt.sign( user, process.env.JWT_SECRET, { expiresIn: (process.env.TOKEN_LIFETIME/1000) });
+			res.cookie('token', token, {maxAge: process.env.TOKEN_LIFETIME});
+			res.redirect(config.dashboard_route());
 
-			}
+		}
 
     });
 		

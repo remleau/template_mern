@@ -4,7 +4,7 @@ cookieParser = require('cookie-parser')
 app = express(); 
 
 // Init
-process.env.NODE_ENV = 'dev';
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 const config = require('./server/ressources/config');
 const database = require('./server/ressources/database');
 
@@ -18,10 +18,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Middleware JWT
-process.env.jwt_secret = 'mern_app';
+process.env.JWT_SECRET = 'mern_app';
 
 // Token lifetime
-process.env.token_lifetime = 3600000; // 1h // TIME IN MS
+process.env.TOKEN_LIFETIME = 3600000; // 1h // TIME IN MS
 
 // Require Routes
 const login = require('./server/routes/login/login');

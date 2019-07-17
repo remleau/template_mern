@@ -3,24 +3,7 @@ const config = require('./config');
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
-let infos = {};
-if (process.env.NODE_ENV == 'dev') {
-    let infos = {
-        host: 'localhost',
-        user: 'root',
-        password: 'mysql',
-        database: 'mern_app'
-    }
-}else{
-    let infos = {
-        host: 'localhost',
-        user: 'ressourc_umern',
-        password: 'M3H;)9NY#stX',
-        database: 'ressourc_mern_app'
-    }
-}
-
-database = mysql.createConnection(infos);
+database = mysql.createConnection(config.database_config());
 
 // connect to database
 database.connect((err) => {

@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
     if (token) {
 
         // verifies secret and checks if the token is expired
-        jwt.verify(token, process.env.jwt_secret , (err, decoded) =>{      
+        jwt.verify(token, process.env.JWT_SECRET , (err, decoded) =>{      
             if (err) {
                 res.json({ message: 'Le token à expiré.' });    
             } else {
