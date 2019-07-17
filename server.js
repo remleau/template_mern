@@ -4,6 +4,7 @@ cookieParser = require('cookie-parser')
 app = express(); 
 
 // Init
+process.env.NODE_ENV = 'dev';
 const config = require('./server/ressources/config');
 const database = require('./server/ressources/database');
 
