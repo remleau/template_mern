@@ -1,6 +1,7 @@
 const express = require('express'),
 bodyParser = require('body-parser'),
-cookieParser = require('cookie-parser')
+cookieParser = require('cookie-parser'),
+helmet = require('helmet'),
 app = express(); 
 
 // Init
@@ -16,6 +17,9 @@ app.use(bodyParser.json());
 
 // Cookies parser
 app.use(cookieParser());
+
+// Security
+app.use(helmet());
 
 // Require Routes
 const login = require('./server/routes/login/login');
