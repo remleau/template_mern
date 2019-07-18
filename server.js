@@ -17,28 +17,24 @@ app.use(bodyParser.json());
 // Cookies parser
 app.use(cookieParser());
 
-// Middleware JWT
-process.env.JWT_SECRET = 'mern_app';
-
-// Token lifetime
-process.env.TOKEN_LIFETIME = 3600000; // 1h // TIME IN MS
-
 // Require Routes
 const login = require('./server/routes/login/login');
 const register = require('./server/routes/register/register');
 const logout = require('./server/routes/logout/logout');
 const dashboard = require('./server/routes/dashboard/dashboard');
 
-// Routes
-app.use('/api/auth/signin', login);
+// POST Routes
+app.use('/api/auth/login', login);
 app.use('/api/auth/register', register);
+
+// GET Routes
 app.use('/api/auth/logout', logout);
 
 // Homepage when Logged In
 app.use(config.dashboard_route(), dashboard);
 
 // Set port
-app.set('port', process.env.port || 5000); // set express to use this port
+app.set('port', process.env.PORT || 5000); // set express to use this port
 app.listen(app.get('port'),()=>{
     console.log('server is running on port ' + app.get('port')) 
 });

@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
 	res.cookie('token', '' , {
 		maxAge: 0
 	});
-	res.redirect('/');
+	res.redirect('/login');
 });
 
 module.exports = router;
