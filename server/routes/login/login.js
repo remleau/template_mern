@@ -29,16 +29,16 @@ router.get('/', isLogged, (req, res) => {
 
     	}else{
 
-			let user = {
-				user_id: results[0].ID,
-				user_name: results[0].user_name,
-				user_email: results[0].user_email,
-			};
-			let token = jwt.sign( user, process.env.JWT_SECRET, { expiresIn: (process.env.TOKEN_LIFETIME/1000) });
-			res.cookie('token', token, {maxAge: process.env.TOKEN_LIFETIME});
-			res.redirect(config.dashboard_route());
+				let user = {
+					user_id: results[0].ID,
+					user_name: results[0].user_name,
+					user_email: results[0].user_email,
+				};
+				let token = jwt.sign( user, process.env.JWT_SECRET, { expiresIn: (process.env.TOKEN_LIFETIME/1000) });
+				res.cookie('token', token, {maxAge: process.env.TOKEN_LIFETIME});
+				res.redirect(config.dashboard_route());
 
-		}
+			}
 
     });
 		
