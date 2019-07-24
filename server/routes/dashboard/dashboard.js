@@ -20,11 +20,9 @@ router.get('/', auth, (req, res) => {
 					message: err.message
 				});
 
-			} else {
+			} 
 
-				res.json(results);
-
-			}
+			res.json(results);
 
 		});
 
