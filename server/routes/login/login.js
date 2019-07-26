@@ -2,48 +2,55 @@ const express = require('express');
 const router = express.Router();
 
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const config = require('./../../../server/ressources/config');
 const isLogged = require('./../../../server/middleware/logged');
 
-router.get('/', isLogged, (req, res) => {
+router.get('/', isLogged ,(req, res) => {
 
-	let user_name = req.body.user_name || 'test';
-	let user_pass = req.body.user_pass || 'test';
+	let user_email = req.body.user_email || 'remleau@gmail.com';
+	let user_pass = req.body.user_pass || 'allo1234';
 
-	if (user_name && user_pass) {
+	if (user_email && user_pass) {
 
-		let get_user = `select ID,user_name,user_email
+		let get_user = `select *
 		from ${config.database_prefix()}users
-		where user_name = ?
-		and user_pass = ?`;
+		where user_email = ?`;
 
-		database.query(get_user, [user_name, user_pass], function (err, results, fields) {
+		database.query(get_user, [user_email], function (err, results, fields) {
 
 			if (err) {
-
 				console.log(err.message);
 				res.status(400).send({
 					message: err.message
 				});
-
 			}
 
-			let user = {
-				user_id: results[0].ID,
-				user_name: results[0].user_name,
-				user_email: results[0].user_email,
-			};
-			let token = jwt.sign( user, process.env.JWT_SECRET, { expiresIn: (process.env.TOKEN_LIFETIME/1000) });
-			res.cookie('token', token, {maxAge: process.env.TOKEN_LIFETIME});
-			res.redirect(config.dashboard_route());
+			if(bcrypt.compareSync(user_pass, results[0].user_pass)){
+
+				let user = {
+					user_id: results[0].ID,
+					user_name: results[0].user_name,
+					user_email: results[0].user_email,
+				};
+				let token = jwt.sign( user, process.env.JWT_SECRET, { expiresIn: (process.env.TOKEN_LIFETIME/1000) });
+				res.cookie('token', token, {maxAge: process.env.TOKEN_LIFETIME});
+				res.redirect(config.dashboard_route());
+			}else{
+
+				res.send({
+					message: 'Nom d\'utilisateur ou mot de passe invalide.'
+				});
+		
+			}
 
 		});
 		
 	}else{
 		
 		res.send({
-			message: 'Veuillez entrer votre Username et votre Mot de passe!'
+			message: 'Veuillez entrer votre nom d\'utilisateur et votre Mot de passe!'
 		});
 		
 	}
