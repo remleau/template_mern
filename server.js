@@ -2,6 +2,7 @@ const express = require('express'),
 bodyParser = require('body-parser'),
 cookieParser = require('cookie-parser'),
 helmet = require('helmet'),
+path = require('path'),
 app = express(); 
 
 // Init
@@ -36,6 +37,8 @@ app.use('/api/auth/logout', logout);
 
 // Homepage when Logged In
 app.use(config.dashboard_route(), dashboard);
+
+app.use(express.static('client/build'));
 
 // Set port
 app.set('port', process.env.PORT || 5000); // set express to use this port

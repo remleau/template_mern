@@ -28,7 +28,6 @@ router.get('/', isLogged ,(req, res) => {
 			}
 
 			if(bcrypt.compareSync(user_pass, results[0].user_pass)){
-
 				let user = {
 					user_id: results[0].ID,
 					user_name: results[0].user_name,
@@ -38,11 +37,9 @@ router.get('/', isLogged ,(req, res) => {
 				res.cookie('token', token, {maxAge: process.env.TOKEN_LIFETIME});
 				res.redirect(config.dashboard_route());
 			}else{
-
 				res.send({
 					message: 'Nom d\'utilisateur ou mot de passe invalide.'
 				});
-		
 			}
 
 		});
