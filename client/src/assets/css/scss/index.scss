@@ -1,2 +1,34 @@
-@import './_reset.scss';
-@import './_variables.scss';
+@import 'reset.scss';
+@import 'variables.scss';
+@import 'typographies.scss';
+
+.overlay{ position: absolute; height: 100%; width: 100%; top: 0; left: 0; }
+.overlay.gris-fonce{ background-color: rgba($couleur_noir,.75); }
+
+@mixin cta{ border-radius: 3px; text-align: center; padding: .5rem 1rem; line-height: 1.75em; display: inline-block; background-color: $couleur_vert; color: #fff; font-size: .9rem; text-transform: uppercase; cursor: pointer; }
+
+.cta{
+	@include cta;
+}
+
+.cta.vert{ background-color: $couleur_vert; }
+.cta.blanc{ background-color: white; color:$couleur_vert; }
+
+.button{ @include cta; padding: .75rem; }
+.button.rouge{ @include cta; padding: .75rem; background-color: #cf2e2e }
+
+form{ width: 100%; display: table; }
+form p{ margin-bottom: .5rem; padding-bottom: 0rem; }
+form .half{ display: inline-block; width: 50%; }
+form .left{ padding-right: .25rem; }
+form .right{ padding-left: .25rem; }
+form .sidebutton *{ display: inline-block; }
+form .sidebutton p{ padding-left: 1rem; font-size: .85rem; }
+form .sidebutton p a{ color:$couleur_vert; }
+label{ display: block; margin-bottom: .25rem; font-size: 1.075rem; color:$couleur_noir; }
+textarea,
+input{ font-family: 'Poppins', sans-serif;  border: none; border-bottom: 1px solid $couleur_noir; color:$couleur_noir; background-color: transparent; outline: none; padding: .6rem; padding-left: 0rem; font-size: .9rem; margin-bottom: .5rem; width: 100%; }
+input[type="submit"],
+button{ @include cta; padding-left: 0; padding: .75rem; border: none; font-family: 'Poppins', sans-serif; line-height: 1em; }
+input.error,
+textarea.error{ border-color:#cf2e2e !important; }
