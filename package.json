@@ -15,9 +15,12 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "concurrently": "^4.1.1"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   }
 }

@@ -18,7 +18,7 @@ const Login = () => {
           <h2>Lorem ipsum dolor sit amet</h2>
           <p>Consectetur adipiscing elit. Phasellus ut consequat magna. Fusce cursus ligula lectus, a tincidunt dolor facilisis sit amet. Suspendisse eget nisi accumsan, fermentum nisi at, interdum nisi. Fusce ac metus cursus, auctor massa quis, pretium velit. Sed faucibus sit amet arcu eget tempus. </p>
           <p>Suspendisse eget nisi accumsan, fermentum nisi at, interdum nisi. Fusce ac metus cursus, auctor massa quis, pretium velit. Sed faucibus sit amet arcu eget tempus. </p>
-          <a href="" className="cta">Call to action</a>
+          <a className="cta">Call to action</a>
         </div>
       </div>
       <div>
