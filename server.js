@@ -27,6 +27,7 @@ const login = require('./server/routes/login/login');
 const register = require('./server/routes/register/register');
 const logout = require('./server/routes/logout/logout');
 const dashboard = require('./server/routes/dashboard/dashboard');
+const profil = require('./server/routes/profil/me');
 
 // POST Routes
 app.use('/api/auth/login', login);
@@ -34,11 +35,12 @@ app.use('/api/auth/register', register);
 
 // GET Routes
 app.use('/api/auth/logout', logout);
+app.use('/api/profile/me', profil);
 
 // Homepage when Logged In
 app.use(config.dashboard_route(), dashboard);
 
-//app.use(express.static('client/build'));
+app.use(express.static('client/build'));
 
 // Set port
 app.set('port', process.env.PORT || 5000); // set express to use this port

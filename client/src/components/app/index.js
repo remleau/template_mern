@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
+import {UserProvider} from '../../components/context/UserContext.js';
+
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Loginpage from '../../components/pages/login';
 
-const App = () => {
-
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("/dashboard")
-      .then(response => response.json())
-      .then(data => setData(data));
-  },[]);
-
-  console.log(data)  
-    
+const App = () => {  
   return(
-    <div className="App">
-      <Header/>
-        <Loginpage/>
-      <Footer/>
-    </div>
+    <UserProvider>
+      <div className="App">
+        <Header/>
+          <Loginpage/>
+        <Footer/>
+      </div>
+    </UserProvider>
   );
 };
 

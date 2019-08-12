@@ -7,10 +7,10 @@ const bcrypt = require('bcrypt');
 const config = require('./../../../server/ressources/config');
 const isLogged = require('./../../../server/middleware/logged');
 
-router.get('/', isLogged ,(req, res) => {
+router.post('/', isLogged ,(req, res) => {
 
-	let user_email = req.body.user_email || 'remleau@gmail.com';
-	let user_pass = req.body.user_pass || 'allo1234';
+	let user_email = req.body.user_email;
+	let user_pass = req.body.user_pass;
 
 	if (user_email && user_pass) {
 

@@ -4,14 +4,14 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const config = require('./../../../server/ressources/config');
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
 	
 	let today = new Date();
-	let hash_user_pass = bcrypt.hashSync(req.body.password || 'allo1234', config.saltRounds);
+	let hash_user_pass = bcrypt.hashSync(req.body.user_pass, config.saltRounds);
 	let user = {
-		"user_name": req.body.first_name || 'Rémy Groleau',
-		"user_email": req.body.email || 'remleau@gmail.com',
-		"user_pass": hash_user_pass || 'allo1234',
+		"user_name": req.body.user_name,
+		"user_email": req.body.user_email,
+		"user_pass": hash_user_pass,
 		"user_registered": today
 	}
 
