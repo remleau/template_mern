@@ -38,7 +38,7 @@ app.use('/api/auth/logout', logout);
 // Homepage when Logged In
 app.use(config.dashboard_route(), dashboard);
 
-//app.use(express.static('client/build'));
+app.use(express.static('client/build'));
 
 // Set port
 app.set('port', process.env.PORT || 5000); // set express to use this port
