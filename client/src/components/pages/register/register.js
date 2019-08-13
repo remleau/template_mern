@@ -1,20 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { UserContext } from '../../../components/context/UserContext';
-
-import './login.scss'; 
+import './register.scss'; 
 import imgUrl from '../../../assets/images/bg-login.jpg';
 import Error from '../../../components/error';
 
-const Login = () => {
+const register = () => {
 
   const bgImage = {
     backgroundImage: 'url(' + imgUrl + ')'
   };
 
-  const [user, setUser] = useContext(UserContext);
-
+  const [name, setName] = useState("");
   const [courriel, setCourriel] = useState("");
   const [password, setPassword] = useState("");
   const [newUser, setNewUser] = useState("");
@@ -22,14 +19,15 @@ const Login = () => {
 
   useEffect(() => {
     setNewUser({
+      "user_name": name,
       "user_email": courriel,
       "user_pass": password,
     });
-  }, [courriel, password])
+  }, [name, courriel, password])
   
   const postData = async () => {
 
-    const res = await fetch("/api/auth/login",{
+    const res = await fetch("/api/auth/register",{
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -42,15 +40,9 @@ const Login = () => {
 
     setResponse(response);
 
-    console.log(response)
-
-    if(response){
-      setUser(setUser);
-    }
-
   }  
 
-  const login = (e) => {
+  const register = (e) => {
     e.preventDefault();
     postData();
   }
@@ -64,17 +56,18 @@ const Login = () => {
           <h2>Lorem ipsum dolor sit amet</h2>
           <p>Consectetur adipiscing elit. Phasellus ut consequat magna. Fusce cursus ligula lectus, a tincidunt dolor facilisis sit amet. Suspendisse eget nisi accumsan, fermentum nisi at, interdum nisi. Fusce ac metus cursus, auctor massa quis, pretium velit. Sed faucibus sit amet arcu eget tempus. </p>
           <p>Suspendisse eget nisi accumsan, fermentum nisi at, interdum nisi. Fusce ac metus cursus, auctor massa quis, pretium velit. Sed faucibus sit amet arcu eget tempus. </p>
-          <Link to={'/register'} className="cta">Créer un compte</Link>
+          <Link to={'/login'} className="cta">Se connecter</Link>
         </div>
       </div>
       <div>
         <div className="form-auth">
-          <h2>Me connecter à mon compte</h2>
-          {response.message ? <Error value={response.message} /> : <Redirect to="/dashboard" />}
-          <form onSubmit={login}>
+          <h2>Créer mon compte</h2>
+          {response ? <Error value={response.message} /> : ""}
+          <form onSubmit={register}>
+            <p><input onChange={e => setName(e.target.value)} placeholder="Prénom et nom" type="text" /></p>
             <p><input onChange={e => setCourriel(e.target.value)} placeholder="Adresse courriel" type="text" /></p>
             <p><input onChange={e => setPassword(e.target.value)} placeholder="Mot de passe" type="password" /></p>
-            <p><button type="submit" className="cta blanc">Me connecter</button><a>Mot de passe oublié?</a></p>
+            <p><button type="submit" className="cta blanc">M'enregistrer</button></p>
           </form>
         </div>
       </div>
@@ -82,4 +75,4 @@ const Login = () => {
   );
 }
 
-export default Login;
+export default register;

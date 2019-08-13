@@ -1,0 +1,100 @@
+@import './../../../assets/css/scss/index.scss';
+
+.connexion-inscription {
+  height: 100vh;
+  display:flex;
+  justify-content:center;
+  >div {
+    display:flex;
+    align-items:center;
+    background-color: $couleur_vert;
+    padding: 4rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.connexion-inscription>div:first-child {
+  width: 70%;
+}
+
+.connexion-inscription>div:nth-child(2) {
+  width: 30%;
+}
+
+.connexion-inscription .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  //.gradient(fade(@couleur_noir, 90%), fade(@couleur_noir, 85%));
+}
+
+.connexion-inscription .welcome {
+  width: 70%;
+  h1 {
+    font-size: 2.75rem;
+    padding-bottom: .25rem;
+    color: white;
+  }
+  h2 {
+    padding-bottom: 2rem;
+    color: white;
+  }
+  p {
+    line-height: 1.8em;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: darken(white, 20%);
+  }
+}
+
+.connexion-inscription .form-auth {
+  width: 100%;
+  h2 {
+    color: white;
+    padding-bottom: 1rem;
+  }
+  a:nth-child(2){
+    margin-left:1rem;
+    color:white;
+    font-size: .85rem;
+    opacity: .8;
+  }
+  form{
+    input{
+      border-color: white;
+      color: white;
+    }
+  }
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: white;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: white;
+  }
+
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: white;
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: white;
+  }
+}
+
+.wrapper-form{
+  background:#f6f6f6;
+  padding: 4rem;
+  width: 70%;
+  margin: auto;
+  li{
+    padding-bottom: 0rem;
+  }
+}

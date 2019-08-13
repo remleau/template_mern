@@ -41,6 +41,9 @@ app.use('/api/profile/me', profil);
 app.use(config.dashboard_route(), dashboard);
 
 app.use(express.static('client/build'));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve('client/build', 'index.html'));
+});
 
 // Set port
 app.set('port', process.env.PORT || 5000); // set express to use this port
