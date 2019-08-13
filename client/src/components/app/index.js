@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { UserProvider } from '../../components/context/UserContext';
 import { PrivateRoute } from '../../components/PrivateRoute/PrivateRoute';
+import { UserProvider } from '../../components/context/UserContext';
 
 import Header from '../../components/header';
 import Footer from '../../components/footer';
