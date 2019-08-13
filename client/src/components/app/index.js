@@ -1,7 +1,8 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom';
 
-import {UserProvider} from '../../components/context/UserContext.js';
+import { UserProvider } from '../../components/context/UserContext';
+import { PrivateRoute } from '../../components/PrivateRoute/PrivateRoute';
 
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -15,10 +16,9 @@ const App = () => {
       <div className="App">
         <Header/>
           <Switch>
-            <Route exact path='/' component={Loginpage} />
+            <PrivateRoute exact path='/' component={Dashboardpage} />
             <Route exact path='/login' component={Loginpage} />
-            <Route path='/register' component={Registerpage} />
-            <Route path='/dashboard' component={Dashboardpage} />
+            <Route exact path='/register' component={Registerpage} />
           </Switch>
         <Footer/>
       </div>

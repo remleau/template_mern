@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-
-import { UserContext } from '../../../components/context/UserContext';
 
 import './login.scss'; 
 import imgUrl from '../../../assets/images/bg-login.jpg';
@@ -13,12 +11,11 @@ const Login = () => {
     backgroundImage: 'url(' + imgUrl + ')'
   };
 
-  const [user, setUser] = useContext(UserContext);
-
   const [courriel, setCourriel] = useState("");
   const [password, setPassword] = useState("");
   const [newUser, setNewUser] = useState("");
   const [response, setResponse] = useState("");
+  const [redirect, setRedirect] = useState("");
 
   useEffect(() => {
     setNewUser({
@@ -42,12 +39,6 @@ const Login = () => {
 
     setResponse(response);
 
-    console.log(response)
-
-    if(response){
-      setUser(setUser);
-    }
-
   }  
 
   const login = (e) => {
@@ -70,7 +61,8 @@ const Login = () => {
       <div>
         <div className="form-auth">
           <h2>Me connecter à mon compte</h2>
-          {response.message ? <Error value={response.message} /> : <Redirect to="/dashboard" />}
+          {response.message ? <Error value={response.message} /> : "" }
+          {response.user_id ? <Redirect to="/dashboard" /> : "" }
           <form onSubmit={login}>
             <p><input onChange={e => setCourriel(e.target.value)} placeholder="Adresse courriel" type="text" /></p>
             <p><input onChange={e => setPassword(e.target.value)} placeholder="Mot de passe" type="password" /></p>

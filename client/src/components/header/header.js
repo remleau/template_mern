@@ -5,7 +5,7 @@ import { UserContext } from './../../components/context/UserContext';
 
 const Header = () =>{
 
-    const [user, setUser] = useContext(UserContext);
+    const [user] = useContext(UserContext);
 
     return(
         <div>
