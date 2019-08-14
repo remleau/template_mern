@@ -4,15 +4,13 @@ import { UserContext } from './../../components/context/UserContext';
 
 export const PrivateRoute = ({ component: Component , ...rest }) => {
 
-    const {user} = useContext(UserContext);
-
-    console.log(user)
+    const {isLoggedIn} = useContext(UserContext);
 
     return(
         <Route
           {...rest}
           render={props =>
-            user
+            isLoggedIn
           ? (
               <Component {...props} />
             ) : (

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { UserContext } from '../../../components/context/UserContext';
 
 import './register.scss'; 
 import imgUrl from '../../../assets/images/bg-login.jpg';
@@ -11,11 +12,13 @@ const register = () => {
     backgroundImage: 'url(' + imgUrl + ')'
   };
 
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+
   const [name, setName] = useState("");
   const [courriel, setCourriel] = useState("");
   const [password, setPassword] = useState("");
   const [newUser, setNewUser] = useState("");
-  const [response, setResponse] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setNewUser({
@@ -38,7 +41,11 @@ const register = () => {
 
     const response = await res.json();
 
-    setResponse(response);
+    if(response.user_id){
+      setIsLoggedIn(true)
+    }else{
+      setError(response)
+    }
 
   }  
 
@@ -48,6 +55,7 @@ const register = () => {
   }
 
   return (
+
     <div className="connexion-inscription">
       <div style={bgImage}>
         <div className="overlay gris-fonce"></div>
@@ -62,7 +70,7 @@ const register = () => {
       <div>
         <div className="form-auth">
           <h2>Créer mon compte</h2>
-          {response ? <Error value={response.message} /> : ""}
+          {error ? <Error value={error} /> : ""}
           <form onSubmit={register}>
             <p><input onChange={e => setName(e.target.value)} placeholder="Prénom et nom" type="text" /></p>
             <p><input onChange={e => setCourriel(e.target.value)} placeholder="Adresse courriel" type="text" /></p>

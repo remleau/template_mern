@@ -5,7 +5,7 @@ const Error = (props) =>{
     return(
         <div className="error">
             <p>
-                {props.value}
+                {props.value.message}
             </p>
         </div>
     );

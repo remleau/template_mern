@@ -5,11 +5,16 @@ import { UserContext } from './../../components/context/UserContext';
 
 const Header = () =>{
 
-    const [user] = useContext(UserContext);
+    const {user, isLoggedIn ,setIsLoggedIn} = useContext(UserContext);
+
+    const logout = () => {
+        setIsLoggedIn(false)
+    }
 
     return(
         <div>
-            {!user.message ? user.user_name : ""}
+            {isLoggedIn ? user.user_name : ""}
+            {isLoggedIn ? <a onClick={logout}>Logout</a> : ""}
         </div>
     );
 };

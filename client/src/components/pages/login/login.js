@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+
+import { UserContext } from '../../../components/context/UserContext';
 
 import './login.scss'; 
 import imgUrl from '../../../assets/images/bg-login.jpg';
@@ -11,10 +13,12 @@ const Login = () => {
     backgroundImage: 'url(' + imgUrl + ')'
   };
 
+  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+
   const [courriel, setCourriel] = useState("");
   const [password, setPassword] = useState("");
   const [newUser, setNewUser] = useState("");
-  const [response, setResponse] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setNewUser({
@@ -28,15 +32,19 @@ const Login = () => {
     const res = await fetch("/api/auth/login",{
       method: "POST",
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify(newUser)
     });
 
     const response = await res.json();
 
-    setResponse(response);
+    if(response.user_id){
+      setIsLoggedIn(true)
+    }else{
+      setError(response)
+    }
 
   }  
 
@@ -60,8 +68,8 @@ const Login = () => {
       <div>
         <div className="form-auth">
           <h2>Me connecter à mon compte</h2>
-          {response.message ? <Error value={response.message} /> : "" }
-          {response.user_id ? <Redirect to="/" /> : "" }
+          {error ? <Error value={error} /> : ""}
+          {isLoggedIn ? <Redirect to="/dashboard" /> : ""}
           <form onSubmit={login}>
             <p><input onChange={e => setCourriel(e.target.value)} placeholder="Adresse courriel" type="text" /></p>
             <p><input onChange={e => setPassword(e.target.value)} placeholder="Mot de passe" type="password" /></p>
