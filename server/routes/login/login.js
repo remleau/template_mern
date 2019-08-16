@@ -35,7 +35,7 @@ router.post('/', isLogged ,(req, res) => {
 				};
 				let token = jwt.sign( user, process.env.JWT_SECRET, { expiresIn: (process.env.TOKEN_LIFETIME/1000) });
 				res.cookie('token', token, {maxAge: process.env.TOKEN_LIFETIME});
-				res.json(user)
+				res.redirect('/api/profile/me')
 			}else{
 				res.send({
 					message: 'Nom d\'utilisateur ou mot de passe invalide.'

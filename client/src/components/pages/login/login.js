@@ -61,10 +61,10 @@ const Login = () => {
         <div className="form-auth">
           <h2>Me connecter à mon compte</h2>
           {response.message ? <Error value={response.message} /> : "" }
-          {response.user_id ? <Redirect to="/" /> : "" }
+          {response.user_id ? <Redirect to="/dashboard" /> : "" }
           <form onSubmit={login}>
-            <p><input onChange={e => setCourriel(e.target.value)} placeholder="Adresse courriel" type="text" /></p>
-            <p><input onChange={e => setPassword(e.target.value)} placeholder="Mot de passe" type="password" /></p>
+            <p><input onChange={e => setCourriel(e.target.value)} value={courriel} placeholder="Adresse courriel" type="text" /></p>
+            <p><input onChange={e => setPassword(e.target.value)} value={password} placeholder="Mot de passe" type="password" /></p>
             <p><button type="submit" className="cta blanc">Me connecter</button><a>Mot de passe oublié?</a></p>
           </form>
         </div>

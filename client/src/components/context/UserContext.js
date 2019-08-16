@@ -8,11 +8,9 @@ export const UserProvider = props => {
     
     useEffect( () => {
         const fetchData = async () => {
-            if(user){
-                const response = await fetch("/api/profile/me");
-                const json = await response.json();
-                setUser(json);
-            }
+            const response = await fetch("/api/profile/me");
+            const json = await response.json();
+            setUser(json);
         };
         fetchData();
     }, [user]);
