@@ -16,9 +16,10 @@ const App = () => {
       <div className="App">
         <Header/>
           <Switch>
+            <Route exact path='/' component={Loginpage} />
             <Route exact path='/login' component={Loginpage} />
             <Route exact path='/register' component={Registerpage} />
-            <PrivateRoute path='/dashboard' component={Dashboardpage} />
+            <PrivateRoute exact path='/dashboard' component={Dashboardpage} />
           </Switch>
         <Footer/>
       </div>

@@ -5,7 +5,9 @@ router.get('/', (req, res) => {
 	res.cookie('token', '' , {
 		maxAge: 0
 	});
-	res.redirect('/login');
+	res.send({
+		message: 'Vous avez bien été déconnecté'
+	});
 });
 
 module.exports = router;

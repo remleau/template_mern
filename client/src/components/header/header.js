@@ -7,19 +7,17 @@ const Header = () =>{
     
     const [user, setUser] = useContext(UserContext);
 
+
+    const {user, isLoggedIn ,setIsLoggedIn} = useContext(UserContext);
+
     const logout = () => {
-        const fetchData = async () => {
-            const response = await fetch("/api/auth/logout");
-            const json = await response.json();
-            setUser([]);
-        };
-        fetchData();
+        setIsLoggedIn(false)
     }
 
     return(
         <div>
-            {!user.message ? user.user_name : ""}
-            {!user.message ? <a onClick={logout}>   logout</a> : ""}
+            {isLoggedIn ? user.user_name : ""}
+            {isLoggedIn ? <a onClick={logout}>Logout</a> : ""}
         </div>
     );
 };
