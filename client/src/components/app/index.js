@@ -20,6 +20,9 @@ const App = () => {
             <Route exact path='/login' component={Loginpage} />
             <Route exact path='/register' component={Registerpage} />
             <PrivateRoute exact path='/dashboard' component={Dashboardpage} />
+            <PrivateRoute exact path='/dashboard/sub1' component={Dashboardpage} />
+            <PrivateRoute exact path='/dashboard/sub2' component={Dashboardpage} />
+            <PrivateRoute exact path='/dashboard/sub3' component={Dashboardpage} />
           </Switch>
         <Footer/>
       </div>
