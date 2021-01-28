@@ -1,13 +1,14 @@
 const models = require('./models');
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
+const config = require('./config');
 
 let database = new Sequelize(
-  "database",
-  "username",
-  "password",
+  config.db.name,
+  config.db.user,
+  config.db.password,
   {
-    host: '',
+    host: config.db.host,
     dialect: 'mysql',
     pool: {
       max: 5,
@@ -29,13 +30,6 @@ const init = async () => {
 			username: 'remleau',
 			email: 'remleau@gmail.com',
 			password: bcrypt.hashSync('allo1234', 8)
-		});
-		User.create({
-			firstName: 'Barry',
-			lastName: 'Allen',
-			username: 'flash',
-			email: 'fastest@man.alive',
-			password: bcrypt.hashSync('flash', 8)
 		});
 	});
 }

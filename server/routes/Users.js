@@ -1,5 +1,5 @@
 var router = require('express').Router();
-const { User } = require('./../Database.js');
+const { User } = require('./../database.js');
 
 router.post('/all', function (req, res) {
 
