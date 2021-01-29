@@ -18,3 +18,7 @@ app.use(AuthMiddleware); // Check if user logged in
 
 // Routes
 app.use('/api', require('./routes'));
+
+app.use('/', (req, res) => {
+  console.log(res);
+});

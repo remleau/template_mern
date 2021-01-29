@@ -11,6 +11,7 @@ router.get('/me', function (req, res) {
 
 });
 
+
 router.post('/login', async (req, res) => {
 
   const { username, password } = req.body;
@@ -47,11 +48,13 @@ router.post('/login', async (req, res) => {
 
 });
 
+
 router.post('/create', function (req, res) {
 
 
 
 });
+
 
 router.put('/update', function (req, res) {
 
@@ -59,10 +62,12 @@ router.put('/update', function (req, res) {
 
 });
 
+
 router.delete('/delete', function (req, res) {
 
 
 
 });
+
 
 module.exports = router
