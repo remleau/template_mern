@@ -1,0 +1,13 @@
+.containerMernAdmin {
+  @apply h-screen w-full;
+  @apply flex;
+}
+
+.containerMernPages {
+  @apply w-full p-12;
+}
+
+.containerGeneralCenter {
+  @apply h-screen w-full;
+  @apply flex items-center justify-center;
+}
