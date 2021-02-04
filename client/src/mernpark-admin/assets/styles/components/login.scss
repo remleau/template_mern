@@ -1,7 +1,35 @@
 .containerLogin {
+  @apply flex;
+
+  .containerForm {
+    @apply p-0;
+  }
+}
+
+.textForm {
+  @apply pb-10;
+
+  p {
+    @apply pb-2;
+    @apply text-sm;
+  }
+}
+
+.containerLeft {
   background-image: url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80');
   background-size: cover;
   background-position: center;
 
-  @apply h-screen w-full;
+  @apply w-4/12 h-screen;
+}
+
+.containerRight {
+  @apply w-8/12 h-screen;
+  @apply flex items-center justify-center; 
+  
+  > div {
+    @apply w-6/12;
+    @apply p-10 shadow-md;
+    @apply bg-lightGrey;
+  }
 }

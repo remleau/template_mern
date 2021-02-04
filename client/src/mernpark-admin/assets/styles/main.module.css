@@ -17,6 +17,61 @@
   justify-content: center;
 }
 
+.h1 {
+  font-size: 1.875rem;
+}
+
+.h2 {
+  font-size: 1.5rem;
+}
+
+.h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.containerLogin {
+  display: flex;
+}
+
+.containerLogin .containerForm {
+    padding: 0;
+  }
+
+.textForm {
+  padding-bottom: 2.5rem;
+}
+
+.textForm p {
+    padding-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+.containerLeft {
+  background-image: url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 33.333333%;
+}
+
+.containerRight {
+  height: 100vh;
+  width: 66.666667%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerRight > div {
+    width: 50%;
+    padding: 2.5rem;
+    --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    --tw-bg-opacity: 1;
+    background-color: rgba(249, 249, 249, var(--tw-bg-opacity));
+  }
+
 header {
   width: 16.666667%;
   --tw-bg-opacity: 1;
@@ -25,12 +80,78 @@ header {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.containerLogin {
-  background-image: url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100%;
+.containerForm {
+  padding: 1.25rem;
+}
+
+.containerForm form div {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+.containerForm form label {
+      display: block;
+      font-weight: 300;
+      --tw-text-opacity: 1;
+      color: rgba(56, 53, 61, var(--tw-text-opacity));
+      padding-bottom: 0.25rem;
+    }
+
+.containerForm form input {
+      padding: 0.75rem;
+      width: 100%;
+      --tw-border-opacity: 1;
+      border-color: rgba(157, 153, 154, var(--tw-border-opacity));
+      border-bottom-width: 1px;
+      --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      --tw-bg-opacity: 1;
+      background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+    }
+
+.containerForm form button {
+      --tw-bg-opacity: 1;
+      background-color: rgba(60, 150, 200, var(--tw-bg-opacity));
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      --tw-text-opacity: 1;
+      color: rgba(255, 255, 255, var(--tw-text-opacity));
+    }
+
+.errorField {
+  padding-top: 0.5rem;
+  display: block;
+  font-size: 0.875rem;
+  --tw-text-opacity: 1;
+  color: rgba(204, 79, 75, var(--tw-text-opacity));
+}
+
+.errorInput {
+  --tw-border-opacity: 1 !important;
+  border-color: rgba(204, 79, 75, var(--tw-border-opacity)) !important;
+}
+
+.errorInput:focus {
+    outline-color: #cc4f4b;
+  }
+
+.errorFormMessage {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(204, 79, 75, var(--tw-bg-opacity));
+  font-weight: 500;
+  font-size: 0.875rem;
+  --tw-text-opacity: 1;
+  color: rgba(249, 249, 249, var(--tw-text-opacity));
+  font-style: italic;
 }
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
@@ -1065,6 +1186,18 @@ video {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(0px * var(--tw-divide-x-reverse));
   border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
+}
+
+.divide-y-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.divide-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--tw-divide-x-reverse));
+  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
 }
 
 .divide-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2720,6 +2853,10 @@ video {
   border-width: 0;
 }
 
+.border-1 {
+  border-width: 1px;
+}
+
 .border-2 {
   border-width: 2px;
 }
@@ -2750,6 +2887,22 @@ video {
 
 .border-l-0 {
   border-left-width: 0;
+}
+
+.border-t-1 {
+  border-top-width: 1px;
+}
+
+.border-r-1 {
+  border-right-width: 1px;
+}
+
+.border-b-1 {
+  border-bottom-width: 1px;
+}
+
+.border-l-1 {
+  border-left-width: 1px;
 }
 
 .border-t-2 {
@@ -10387,6 +10540,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .sm\:divide-y-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+  }
+
+  .sm\:divide-x-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--tw-divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .sm\:divide-y-2 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
@@ -12040,6 +12205,10 @@ video {
     border-width: 0;
   }
 
+  .sm\:border-1 {
+    border-width: 1px;
+  }
+
   .sm\:border-2 {
     border-width: 2px;
   }
@@ -12070,6 +12239,22 @@ video {
 
   .sm\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .sm\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .sm\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .sm\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .sm\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .sm\:border-t-2 {
@@ -19664,6 +19849,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .md\:divide-y-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+  }
+
+  .md\:divide-x-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--tw-divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .md\:divide-y-2 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
@@ -21317,6 +21514,10 @@ video {
     border-width: 0;
   }
 
+  .md\:border-1 {
+    border-width: 1px;
+  }
+
   .md\:border-2 {
     border-width: 2px;
   }
@@ -21347,6 +21548,22 @@ video {
 
   .md\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .md\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .md\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .md\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .md\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .md\:border-t-2 {
@@ -28941,6 +29158,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .lg\:divide-y-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+  }
+
+  .lg\:divide-x-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--tw-divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .lg\:divide-y-2 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
@@ -30594,6 +30823,10 @@ video {
     border-width: 0;
   }
 
+  .lg\:border-1 {
+    border-width: 1px;
+  }
+
   .lg\:border-2 {
     border-width: 2px;
   }
@@ -30624,6 +30857,22 @@ video {
 
   .lg\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .lg\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .lg\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .lg\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .lg\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .lg\:border-t-2 {
@@ -38218,6 +38467,18 @@ video {
     border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
   }
 
+  .xl\:divide-y-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+  }
+
+  .xl\:divide-x-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-x-reverse: 0;
+    border-right-width: calc(1px * var(--tw-divide-x-reverse));
+    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+  }
+
   .xl\:divide-y-2 > :not([hidden]) ~ :not([hidden]) {
     --tw-divide-y-reverse: 0;
     border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
@@ -39871,6 +40132,10 @@ video {
     border-width: 0;
   }
 
+  .xl\:border-1 {
+    border-width: 1px;
+  }
+
   .xl\:border-2 {
     border-width: 2px;
   }
@@ -39901,6 +40166,22 @@ video {
 
   .xl\:border-l-0 {
     border-left-width: 0;
+  }
+
+  .xl\:border-t-1 {
+    border-top-width: 1px;
+  }
+
+  .xl\:border-r-1 {
+    border-right-width: 1px;
+  }
+
+  .xl\:border-b-1 {
+    border-bottom-width: 1px;
+  }
+
+  .xl\:border-l-1 {
+    border-left-width: 1px;
   }
 
   .xl\:border-t-2 {
