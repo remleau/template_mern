@@ -19,15 +19,21 @@
 
 .h1 {
   font-size: 1.875rem;
+  --tw-text-opacity: 1;
+  color: rgba(56, 53, 61, var(--tw-text-opacity));
 }
 
 .h2 {
   font-size: 1.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(56, 53, 61, var(--tw-text-opacity));
 }
 
 .h3 {
   font-weight: 700;
   font-size: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(56, 53, 61, var(--tw-text-opacity));
 }
 
 .containerLogin {
@@ -76,9 +82,121 @@ header {
   width: 16.666667%;
   --tw-bg-opacity: 1;
   background-color: rgba(249, 249, 249, var(--tw-bg-opacity));
-  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
+header .textMenu {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+header .textMenu .h2 {
+      font-weight: 500;
+    }
+
+header .menu {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+header .menu ul.subMenu a {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+header .menu ul.subMenu a:last-child {
+          margin-bottom: 0;
+        }
+
+header .menu ul.subMenu a:after {
+          --tw-bg-opacity: 1;
+          background-color: rgba(56, 53, 61, var(--tw-bg-opacity));
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          transition-property: opacity;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-duration: 200ms;
+          content: '';
+          width: 3px;
+          height: 90%;
+        }
+
+header .menu ul.subMenu a.actif:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(56,53,61,0.06) 0%, rgba(255,255,255,0) 20%);
+          }
+
+header .menu ul.subMenu a.actif:after {
+            opacity: 1;
+          }
+
+header .menu ul.subMenu a.actif li.menuItem span {
+              --tw-text-opacity: 1;
+              color: rgba(13, 13, 13, var(--tw-text-opacity));
+            }
+
+header .menu ul.subMenu a.actif li.menuItem svg path {
+                stroke: #0D0D0D;
+              }
+
+@media (hover: hover) {
+            header .menu ul.subMenu a:hover:before {
+              position: absolute;
+              content: '';
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, rgba(56,53,61,0.06) 0%, rgba(255,255,255,0) 20%);
+            }
+            header .menu ul.subMenu a:hover:after {
+              opacity: 1;
+            }
+              header .menu ul.subMenu a:hover li.menuItem span {
+                --tw-text-opacity: 1;
+                color: rgba(0, 0, 0, var(--tw-text-opacity));
+              }
+                header .menu ul.subMenu a:hover li.menuItem svg path {
+                  stroke: #0D0D0D;
+                }
+        }
+
+header .menu ul.subMenu li.menuItem {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+header .menu ul.subMenu li.menuItem span {
+          font-size: 0.875rem;
+          --tw-text-opacity: 1;
+          color: rgba(56, 53, 61, var(--tw-text-opacity));
+          transition-property: all;
+          transition-duration: 200ms;
+          margin-top: 2px;
+        }
+
+header .menu ul.subMenu li.menuItem svg {
+          margin-right: 1rem;
+          width: 22px;
+        }
+
+header .menu ul.subMenu li.menuItem svg path {
+            stroke: #38353d;
+          }
 
 .containerForm {
   padding: 1.25rem;

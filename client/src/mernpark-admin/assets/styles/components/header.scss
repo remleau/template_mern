@@ -1,4 +1,110 @@
 header {
   @apply w-2/12;
-  @apply bg-lightGrey shadow-sm;
+  @apply bg-lightGrey shadow-md;
+
+  .textMenu {
+    @apply mt-6;
+    @apply flex items-center justify-center;
+
+    .h2 {
+      @apply font-medium;
+    }
+  }
+
+  .menu {
+    @apply my-6;
+
+    ul.subMenu {
+      a {
+        @apply w-full relative flex items-center;
+        @apply mb-2;
+
+        &:last-child {
+          @apply mb-0;
+        }
+
+        &:after {
+          @apply absolute left-0 bg-darkGrey opacity-0;
+          @apply transition-opacity duration-200 ease-in-out;
+          content: '';
+          width: 3px;
+          height: 90%;
+        }
+        
+        &.actif {
+          &:before {
+            @apply absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(56,53,61,0.06) 0%, rgba(255,255,255,0) 20%);
+          }
+
+          &:after {
+            @apply opacity-100;
+          }
+
+          li.menuItem {
+            span {
+              @apply text-noir;
+            }
+
+            svg {
+              path {
+                stroke: theme('colors.noir');
+              }
+            }
+          }
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            &:before {
+              @apply absolute;
+              content: '';
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, rgba(56,53,61,0.06) 0%, rgba(255,255,255,0) 20%);
+            }
+
+            &:after {
+              @apply opacity-100;
+            }   
+
+            li.menuItem {
+              span {
+                @apply text-black;
+              }
+
+              svg {
+                path {
+                  stroke: theme('colors.noir');
+                }
+              }
+            }
+          }
+        }
+      }
+
+      li.menuItem {
+        @apply relative w-full flex items-center;
+        @apply px-6 py-3;
+
+        span {
+          @apply text-darkGrey text-sm;
+          @apply transition-all duration-200;
+          margin-top: 2px;
+        }
+
+        svg {
+          @apply mr-4;
+          width: 22px;
+
+          path {
+            stroke: theme('colors.darkGrey');
+          }
+        }
+      }
+    }
+  }
 }
