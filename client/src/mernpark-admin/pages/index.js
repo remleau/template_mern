@@ -10,7 +10,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 import Dashboard from './dashboard';
-import Settings from './dashboard';
+import Settings from './settngs';
 import Page404 from './dashboard';
 
 const Pages = () => {

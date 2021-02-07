@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 
   delete _user.dataValues.password;
 
-  const token = jwt.sign(_user.dataValues, config.jwt_secret, {
+  const token = jwt.sign({..._user.dataValues, isLoggedIn: true}, config.jwt_secret, {
     expiresIn: "1d" // expires in 24 hours
   });
 

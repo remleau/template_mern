@@ -23,14 +23,13 @@ const MernParkAdmin = () => {
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
-  const { isLoggedIn } = useContext(UserContext);
-  console.log('privateroute', isLoggedIn)
+  const { user } = useContext(UserContext);
 
   return (
     <Route
       {...rest}
       render={props =>
-        isLoggedIn
+        user.isLoggedIn
           ? (
             <Component {...props} />
           ) : (

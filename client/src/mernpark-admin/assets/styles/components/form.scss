@@ -1,0 +1,54 @@
+.containerForm {
+  @apply p-12 shadow-md;
+  @apply bg-lightGrey;
+
+  form {
+    div {
+      @apply w-full;
+      @apply mb-6;
+    }
+
+    label {
+      @apply flex items-center;
+      @apply font-light text-darkGrey;
+      @apply pb-2;
+
+      svg {
+        @apply mr-1;
+        width: 20px;
+      }
+    }
+    
+    input {
+      @apply p-3 px-4 w-full;
+      @apply border-b-1 border-mediumGrey shadow-sm;
+      @apply bg-white;
+    }
+
+    button {
+      @apply bg-blue;
+      @apply px-8 py-3 mt-2;
+      @apply font-semibold text-sm text-white;
+    }
+  }
+}
+
+.errorField {
+  @apply pt-2;
+  @apply block;
+  @apply text-sm text-red;
+}
+
+.errorInput {
+  @apply border-red !important;
+
+  &:focus {
+    outline-color: theme('colors.red');
+  }
+}
+
+.errorFormMessage {
+  @apply px-3 py-2;
+  @apply bg-red;
+  @apply text-sm font-medium italic text-lightGrey;
+}

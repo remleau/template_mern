@@ -1,0 +1,12 @@
+.cta {
+  @apply outline-none;
+  @apply px-5 py-2;
+  @apply bg-blue shadow-sm;
+  @apply text-sm font-semibold text-lightGrey text-center;
+}
+
+.LogoutButton {
+  button {
+    @apply w-full;
+  }
+}
