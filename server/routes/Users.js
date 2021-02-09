@@ -1,7 +1,7 @@
 var router = require('express').Router();
 const { User } = require('./../database.js');
 
-router.get('/all', function (req, res) {
+router.get('/all', async (req, res) => {
 
   const _users = await User.findAll();
 
@@ -11,7 +11,7 @@ router.get('/all', function (req, res) {
     })
   }
 
-  return _users;
+  return res.status(200).send(JSON.stringify(_users));
 	
 });
 

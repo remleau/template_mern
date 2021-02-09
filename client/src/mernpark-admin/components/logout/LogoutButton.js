@@ -10,7 +10,7 @@ const LogoutButton = () => {
   
   const logout = (e) => {
     e.preventDefault();
-    cookies.remove('token');
+    cookies.remove('token', { path: '/' });
     setUser({});
   }
 

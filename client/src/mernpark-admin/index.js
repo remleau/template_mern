@@ -29,7 +29,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props =>
-        user.isLoggedIn
+        user && user?.isLoggedIn
           ? (
             <Component {...props} />
           ) : (

@@ -15,15 +15,15 @@ const Login = () => {
 
   const onSubmit = (formData) => {
     authUser(formData).then((res) => {
-      if(res.error){
-        setError(error)
+      if (res.error){
+        setError(res.error)
       } else {
         setUser(res);
       }
     })
   }
 
-  if (user.isLoggedIn) {
+  if (user && user?.isLoggedIn) {
     return (
       <Redirect to={"/admin"} />
     )

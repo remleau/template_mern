@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
     expiresIn: "1d" // expires in 24 hours
   });
 
-  return res.send(token);
+  return res.status(200).send(token);
 
 });
 

@@ -29,22 +29,18 @@ export const UserProvider = props => {
 
 
 export const authUser = async (formData) => {
-  let resToken = await axiosInstance.post('/api/user/login', formData);
-  let token = resToken.data;
-  let error = resToken.data.error;
-
-  if (typeof token !== 'undefined'){
+  let promise = await axiosInstance.post('/api/user/login', formData);
+  
+  if (typeof promise.data !== 'undefined'){
     // For axios to be utilize
-    cookies.set('token', token);
-
-    let resUser = await axiosInstance.get('/api/user/me');
-    let user = resUser.data;
+    cookies.set('token', promise.data);
     
-    if (typeof user !== 'undefined') {
-      return user;
+    let resUser = await axiosInstance.get('/api/user/me');
+    if (typeof resUser.data !== 'undefined') {
+      return resUser.data;
     }
   } else {
-    return error;
+    return promise;
   }
 }
 
@@ -66,19 +62,18 @@ export const getUserFromToken = async () => {
   if (typeof token !== 'undefined') {
     let resUser = await axiosInstance.get('/api/user/me');
 
-    console.log(resUser);
-    // let user = resUser.data;
+    if (typeof resUser.data !== 'undefined') {
+      return resUser.data;
+    }
 
-    return resUser;
-  } else {
     return false;
   }
+
+  return false;
 }
 
 export const getAllUsers = async () => {
   let users = await axiosInstance.get('/api/users/all');
-
-  console.log(users);
 
   if (typeof users !== 'undefined') { 
     return users.data;
