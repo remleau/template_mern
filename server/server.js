@@ -5,8 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const AuthMiddleware = require('./middlewares/AuthMiddleware');
 const config = require('./config.js');
-const jwt = require('jsonwebtoken');
-//require('./database.js').init();
+// require('./database.js').init();
 
 const server = app.listen(config.db.port);
 

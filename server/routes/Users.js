@@ -1,26 +1,17 @@
 var router = require('express').Router();
 const { User } = require('./../database.js');
 
-router.post('/all', function (req, res) {
+router.get('/all', function (req, res) {
 
-	User.findAll().then(users => {
+  const _users = await User.findAll();
 
-		let users_data = []; 
-		users.forEach(user => {
-			users_data.push({
-				firstName: user.firstName,
-				lastName: user.lastName,
-				email: user.email,
-				username: user.username,
-				lastConnexion: user.lastConnexion,
-				role: user.role,
-			});
-		});
-		res.status(200).send(users_data);
+  if (!_users) {
+    return res.status(400).send({
+      error: 'Une erreur est survenue'
+    })
+  }
 
-	}).catch((err) => {
-		res.status(401).send({ err });
-	});
+  return _users;
 	
 });
 

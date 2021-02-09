@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use((config) => {
   config.headers = { ...config.headers, authorization: 'Bearer ' + getToken() };
-
+  console.log(config)
   return config;
 }, (error) => {
   return Promise.reject(error);

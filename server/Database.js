@@ -30,7 +30,15 @@ const init = async () => {
 			username: 'remleau',
 			email: 'remleau@gmail.com',
 			password: bcrypt.hashSync('allo1234', 8)
-		});
+    });
+    
+    User.create({
+      firstName: 'Barry',
+      lastName: 'Allan',
+      username: 'Fastest man alive',
+      email: 'speed@of.light',
+      password: bcrypt.hashSync('allo1234', 8)
+    });
 	});
 }
 

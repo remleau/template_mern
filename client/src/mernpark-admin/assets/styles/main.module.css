@@ -5,7 +5,10 @@
 }
 
 .containerMernPages {
-  padding: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
   width: 100%;
 }
 
@@ -16,6 +19,22 @@
   align-items: center;
   justify-content: center;
 }
+
+.pageTitle {
+  padding-bottom: 2.5rem;
+}
+
+.pageTitle .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.pageTitle .description p {
+      font-size: 0.875rem;
+      --tw-text-opacity: 1;
+      color: rgba(157, 153, 154, var(--tw-text-opacity));
+    }
 
 .h1 {
   font-size: 1.875rem;
@@ -341,6 +360,10 @@ header .menuAccount .profilCard p:first-of-type {
 .LogoutButton button {
     width: 100%;
   }
+
+footer {
+  padding-top: 3rem;
+}
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 

@@ -65,10 +65,22 @@ export const getUserFromToken = async () => {
 
   if (typeof token !== 'undefined') {
     let resUser = await axiosInstance.get('/api/user/me');
-    let user = resUser.data;
 
-    return user;
+    console.log(resUser);
+    // let user = resUser.data;
+
+    return resUser;
   } else {
     return false;
+  }
+}
+
+export const getAllUsers = async () => {
+  let users = await axiosInstance.get('/api/users/all');
+
+  console.log(users);
+
+  if (typeof users !== 'undefined') { 
+    return users.data;
   }
 }

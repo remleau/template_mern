@@ -4,10 +4,24 @@
 }
 
 .containerMernPages {
-  @apply w-full p-12;
+  @apply w-full px-12 py-8;
 }
 
 .containerGeneralCenter {
   @apply h-screen w-full;
   @apply flex items-center justify-center;
+}
+
+.pageTitle {
+  @apply pb-10;
+
+  .title {
+    @apply flex items-center justify-between;
+  }
+
+  .description { 
+    p {
+      @apply text-sm text-mediumGrey;
+    }
+  }
 }
