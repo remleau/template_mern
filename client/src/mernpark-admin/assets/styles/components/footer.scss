@@ -1,3 +1,7 @@
-footer {
-  @apply pt-12;
+.footer {
+  @apply pt-10 mt-16 border-t-1 border-lightGrey2;
+
+  p {
+    @apply text-sm text-mediumGrey;
+  }
 }

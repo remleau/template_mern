@@ -1,0 +1,27 @@
+.table {
+  @apply w-full;
+  @apply shadow-bs;
+
+  thead {
+    tr {
+      th {
+        @apply bg-lightGrey;
+        @apply py-3 px-6;
+        @apply text-left;
+        @apply border-b-1 border-lightGrey2;
+        @apply text-sm;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        @apply bg-lightGrey;
+        @apply py-3 px-6;
+        @apply border-b-1 border-lightGrey2;
+        @apply text-sm;
+      }
+    }
+  }
+}

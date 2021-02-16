@@ -49,9 +49,35 @@ router.post('/login', async (req, res) => {
 });
 
 
-router.post('/create', function (req, res) {
+router.post('/create', async (req, res) => {
 
+  const { username, email, password, firstName, lastName } = req.body;
 
+  const [user, created] = await User.findOrCreate({
+    where: {
+      [Sequelize.Op.or]: [
+        { username: username },
+        { email: email }
+      ]
+    },
+    defaults: {
+      firstName: firstName,
+      lastName: lastName,
+      username: username,
+      email: email,
+      password: bcrypt.hashSync(password, 8),
+    }
+  });
+
+  if(created) {
+    delete user.dataValues.password;
+
+    res.status(200).send({user})
+  } else {
+    res.status(200).send({
+      error: 'Already exist'
+    })
+  }
 
 });
 

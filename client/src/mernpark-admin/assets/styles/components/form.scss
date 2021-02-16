@@ -3,9 +3,9 @@
   @apply bg-lightGrey;
 
   form {
-    div {
+    > div {
       @apply w-full;
-      @apply mb-6;
+      @apply mb-5;
     }
 
     label {
@@ -51,4 +51,13 @@
   @apply px-3 py-2;
   @apply bg-red;
   @apply text-sm font-medium italic text-lightGrey;
+}
+
+.formHalf {
+  @apply w-full;
+  @apply flex justify-between;
+
+  > div {
+    width: 49% !important;
+  }
 }

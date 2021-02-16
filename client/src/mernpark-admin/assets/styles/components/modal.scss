@@ -1,0 +1,36 @@
+.modal {
+  @apply relative shadow-bs;
+  @apply bg-lightGrey;
+
+  .close {
+    @apply ml-auto flex items-center;
+    @apply absolute;
+
+    top: .35rem;
+    right: .25rem;
+
+    svg {
+      @apply ml-1;
+      width: 20px;
+      height: 20px;
+    }
+
+    span {
+      @apply text-sm;
+    }
+  }
+
+  &.hidden {
+    display: none !important;
+  }
+}
+
+.modalAddUser {
+  @apply mb-8 pt-5;
+
+  .containerForm {
+    @apply p-6;
+
+    box-shadow: none;
+  }
+}

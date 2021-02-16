@@ -3,10 +3,26 @@
   @apply px-5 py-2;
   @apply bg-blue shadow-sm;
   @apply text-sm font-semibold text-lightGrey text-center;
+
+  @apply flex items-center justify-between;
+
+  svg {
+    @apply mr-4;
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .LogoutButton {
   button {
     @apply w-full;
+  }
+}
+
+.close {
+  @apply px-3 py-2;
+
+  svg {
+    @apply mr-0;
   }
 }

@@ -79,3 +79,15 @@ export const getAllUsers = async () => {
     return users.data;
   }
 }
+
+export const addUser = async (formData) => {
+  let promise = await axiosInstance.post('/api/user/create', formData);
+
+  if (typeof promise.data !== 'undefined') {
+    return promise.data;
+  } else {
+    return {
+      error: 'Already exist'
+    }
+  }
+}
