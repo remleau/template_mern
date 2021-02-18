@@ -26,3 +26,13 @@
     @apply mr-0;
   }
 }
+
+.btnDeleteUser {
+  @apply text-red;
+
+  @media (hover: hover) {
+    &:hover { 
+      @apply underline;
+    }
+  }
+}

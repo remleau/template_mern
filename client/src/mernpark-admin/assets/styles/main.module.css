@@ -402,6 +402,17 @@ header .menuAccount .profilCard p:first-of-type {
     margin-right: 0;
   }
 
+.btnDeleteUser {
+  --tw-text-opacity: 1;
+  color: rgba(204, 79, 75, var(--tw-text-opacity));
+}
+
+@media (hover: hover) {
+    .btnDeleteUser:hover {
+      text-decoration: underline;
+    }
+  }
+
 .footer {
   --tw-border-opacity: 1;
   border-color: rgba(231, 229, 225, var(--tw-border-opacity));

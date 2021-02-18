@@ -89,8 +89,27 @@ router.put('/update', function (req, res) {
 });
 
 
-router.delete('/delete', function (req, res) {
+router.delete('/delete', async (req, res) => {
 
+  let id = req.headers['data'] || false;
+
+  if(id) {
+    let userDeleted = await User.destroy({
+      where: {
+        id: id
+      },
+      force: true
+    });
+
+    res.status(200).send({
+      userDeleted: userDeleted,
+      userId: id
+    });
+  } else {
+    res.status(400).send({
+      error: 'No user'
+    })
+  }
 
 
 });

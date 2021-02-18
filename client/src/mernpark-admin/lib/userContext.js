@@ -85,9 +85,17 @@ export const addUser = async (formData) => {
 
   if (typeof promise.data !== 'undefined') {
     return promise.data;
-  } else {
-    return {
-      error: 'Already exist'
+  } 
+}
+
+export const deleteUser = async (id) => {
+  let promise = await axiosInstance.delete('/api/user/delete', {
+    headers: {
+      data: id
     }
-  }
+  });
+
+  if (typeof promise.data !== 'undefined') {
+    return promise.data;
+  } 
 }

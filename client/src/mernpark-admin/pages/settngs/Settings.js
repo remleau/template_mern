@@ -6,7 +6,7 @@ import FormError from '../../components/form';
 import Modal from '../../components/modal';
 import PageWrapper from '../../components/pageWrapper';
 
-import { addUser, getAllUsers } from '../../lib';
+import { addUser, deleteUser, getAllUsers } from '../../lib';
 
 const Settings = () => {
   const refModalAddUser = useRef();
@@ -29,12 +29,25 @@ const Settings = () => {
 
   const onSubmit = (formData) => {
     addUser(formData).then((res) => {
-      console.log(res)
       if(res.error) {
         setError(res.error)
       } else {
         setError(null);
-        setUsers(prevUsers => [...prevUsers, res.user] )
+        setUsers(prevUsers => [...prevUsers, res.user])
+      }
+    });
+  }
+
+  const deleteUserById = (id) => {
+    deleteUser(id).then((res) => {
+      let userId = res.userId || false;
+
+      if(userId){
+
+        // Lazy ass shloud filter object
+        getAllUsers().then((res) => {
+          setUsers(res);
+        });
       }
     });
   }
@@ -139,7 +152,7 @@ const Settings = () => {
                 <td>{users[key].firstName} {users[key].lastName}</td>
                 <td>{users[key].email}</td>
                 <td>{users[key].lastConnexion ?? '-'}</td>
-                <td>Modify | Delete</td>
+                <td>Modify | <button className={styles.btnDeleteUser} onClick={() => deleteUserById(users[key].id || false)}>Delete</button></td>
               </tr>
             )
           })}
