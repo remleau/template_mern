@@ -29,7 +29,7 @@ const Modal = forwardRef((props ,ref) => {
         </svg>
       </button>
 
-      <div>{props.children}</div>
+      <div>{props.children ? props.children : '<p>Empty Modal</p>'}</div>
 
     </div>
   );

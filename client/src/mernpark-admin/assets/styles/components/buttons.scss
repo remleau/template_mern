@@ -36,3 +36,13 @@
     }
   }
 }
+
+.modifyUser {
+  @apply text-blue;
+
+  @media (hover: hover) {
+    &:hover { 
+      @apply underline;
+    }
+  }
+}

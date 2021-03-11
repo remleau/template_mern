@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { UserProvider, UserContext } from './lib';
 
 import Admin from './pages';
@@ -12,7 +12,7 @@ const MernParkAdmin = () => {
     <Router>
       <UserProvider>
         <Switch>
-          <PrivateRoute path='/admin/:path?' exact component={Admin} />
+          <PrivateRoute path='/admin' component={Admin} />
           <Route path='/login' exact component={Login} />
           <Route path='/' component={Theme} />
         </Switch>
@@ -24,7 +24,7 @@ const MernParkAdmin = () => {
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
   const { user } = useContext(UserContext);
-
+  
   return (
     <Route
       {...rest}

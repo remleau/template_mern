@@ -4,7 +4,7 @@ import styles from "../../assets/styles/main.module.css"
 const Loading = () => {
 
   return (
-    <div></div>
+    <div>loading</div>
   );
 }
 

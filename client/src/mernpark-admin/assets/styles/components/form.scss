@@ -8,6 +8,14 @@
       @apply mb-5;
     }
 
+    .half {
+      @apply flex justify-between;
+      
+      > div {
+        width: 49%;
+      }
+    }
+
     label {
       @apply flex items-center;
       @apply font-light text-darkGrey;

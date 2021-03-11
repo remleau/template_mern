@@ -7,8 +7,10 @@ const config = require('../config');
 
 router.get('/me', function (req, res) {
 
-  res.status(200).send(req.user)
-
+  if (typeof req.user !== 'undefined') {
+    return res.status(200).send(req.user)
+  }
+  
 });
 
 
@@ -51,7 +53,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/create', async (req, res) => {
 
-  const { username, email, password, firstName, lastName } = req.body;
+  const { username, email, password, firstName, lastName , user_id } = req.body;
 
   const [user, created] = await User.findOrCreate({
     where: {
@@ -61,6 +63,7 @@ router.post('/create', async (req, res) => {
       ]
     },
     defaults: {
+      user_id: parseInt(Date.now()) + parseInt(Math.random()),
       firstName: firstName,
       lastName: lastName,
       username: username,
@@ -91,19 +94,19 @@ router.put('/update', function (req, res) {
 
 router.delete('/delete', async (req, res) => {
 
-  let id = req.headers['data'] || false;
+  let user_id = req.headers['user_id'] || false;
 
-  if(id) {
+  if (user_id) {
     let userDeleted = await User.destroy({
       where: {
-        id: id
+        user_id: user_id
       },
       force: true
     });
 
     res.status(200).send({
       userDeleted: userDeleted,
-      userId: id
+      user_id: user_id
     });
   } else {
     res.status(400).send({
@@ -111,8 +114,32 @@ router.delete('/delete', async (req, res) => {
     })
   }
 
-
 });
 
+router.get('/profile', async (req, res) => {
+
+  let user_id = parseInt(req.headers['user_id']) || false;
+  if (user_id){
+    let userProfile = await User.findOne({ where: { user_id: user_id } }) || false;
+    if (userProfile) {
+
+      delete userProfile.dataValues.password;
+      
+      res.status(200).send({
+        data: userProfile
+      });
+
+    } else {
+      res.status(200).send({
+        error: 'No user'
+      })
+    }
+  } else {
+    res.status(200).send({
+      error: 'No user'
+    })
+  }
+
+});
 
 module.exports = router

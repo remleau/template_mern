@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { authUser, UserContext, getToken } from '../../lib';
+import { authUser, UserContext, socketInstance } from '../../lib';
 
 import FormError from '../../components/form';
 
@@ -14,11 +14,12 @@ const Login = () => {
   const { user, setUser } = useContext(UserContext);
 
   const onSubmit = (formData) => {
-    authUser(formData).then((res) => {
-      if (res.error){
-        setError(res.error)
+    authUser(formData).then((user) => {
+      if (user.error){
+        setError(user.error)
       } else {
-        setUser(res);
+        socketInstance.emit("loginUser", user);
+        setUser(user);
       }
     })
   }

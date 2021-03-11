@@ -17,16 +17,13 @@ axiosInstance.interceptors.response.use((response) => {
   return response;
 }, (error) => {
   if (error.response) {
-    console.log(error.response, 'error')
+    // return error.response;
   } else if (error.request) {
-    console.log(error,'request')
-    return {
-      error: 'Aucune connexion serveur'
-    }
+    // return error.request
   } else if (error.message) {
-    console.log(error.message, 'message')
+    // return error.message;
   }
   
-  return error;
+  return error.response;
   //return Promise.reject(error);
 });

@@ -277,6 +277,15 @@ header .menuAccount .profilCard p:first-of-type {
       margin-bottom: 1.25rem;
     }
 
+.containerForm form .half {
+      display: flex;
+      justify-content: space-between;
+    }
+
+.containerForm form .half > div {
+        width: 49%;
+      }
+
 .containerForm form label {
       display: flex;
       align-items: center;
@@ -413,6 +422,17 @@ header .menuAccount .profilCard p:first-of-type {
     }
   }
 
+.modifyUser {
+  --tw-text-opacity: 1;
+  color: rgba(60, 150, 200, var(--tw-text-opacity));
+}
+
+@media (hover: hover) {
+    .modifyUser:hover {
+      text-decoration: underline;
+    }
+  }
+
 .footer {
   --tw-border-opacity: 1;
   border-color: rgba(231, 229, 225, var(--tw-border-opacity));
@@ -460,8 +480,46 @@ header .menuAccount .profilCard p:first-of-type {
         font-size: 0.875rem;
       }
 
+.table .actions button {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-left: .05rem;
+    }
+
+.table .actions button:after {
+        --tw-bg-opacity: 1;
+        background-color: rgba(157, 153, 154, var(--tw-bg-opacity));
+        display: inline-block;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        position: relative;
+        height: 15px;
+        width: 1px;
+        content: '';
+      }
+
+.table .actions button:first-child {
+        margin-left: 0;
+      }
+
+.table .actions button:last-of-type .modal.modal:after {
+            display: none;
+          }
+
+.table .actions button:last-of-type:after {
+          display: none;
+        }
+
 .pageDefault {
   background-color: transparent;
+}
+
+.containerTitles {
+  padding-top: 0.5rem;
+  padding-bottom: 1.25rem;
 }
 
 .modal {
@@ -477,6 +535,8 @@ header .menuAccount .profilCard p:first-of-type {
     align-items: center;
     margin-left: auto;
     position: absolute;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     top: .35rem;
     right: .25rem;
   }
@@ -504,6 +564,44 @@ header .menuAccount .profilCard p:first-of-type {
     padding: 1.5rem;
     box-shadow: none;
   }
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  --tw-text-opacity: 1;
+  color: rgba(157, 153, 154, var(--tw-text-opacity));
+}
+
+.breadcrumb .breadcrumbPrefix {
+    display: flex;
+    align-items: center;
+  }
+
+.breadcrumb .breadcrumbPrefix span {
+      font-size: 0.75rem;
+    }
+
+.breadcrumb .breadcrumbPrefix svg {
+      width: 15px;
+      margin-bottom: 1px;
+      margin-right: 0.5rem
+    }
+
+.breadcrumb .breadcrumbBody {
+    display: flex;
+    align-items: center;
+  }
+
+.breadcrumb .breadcrumbBody .breadcrumbItem {
+      font-size: 0.75rem;
+    }
+
+.breadcrumb .breadcrumbBody .breadcrumbSeparator {
+      font-size: 0.75rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 

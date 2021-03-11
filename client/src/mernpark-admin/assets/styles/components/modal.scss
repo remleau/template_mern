@@ -5,6 +5,7 @@
   .close {
     @apply ml-auto flex items-center;
     @apply absolute;
+    @apply outline-none;
 
     top: .35rem;
     right: .25rem;

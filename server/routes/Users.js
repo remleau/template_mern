@@ -10,7 +10,7 @@ router.get('/all', async (req, res) => {
       error: 'Une erreur est survenue'
     })
   }
-
+  
   return res.status(200).send(JSON.stringify(_users));
 	
 });

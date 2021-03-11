@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 
 module.exports = (req, res, next) => {
+
   const authHeader = req.headers.authorization;
 
   if(req.path == '/api/user/login') {
@@ -12,12 +13,12 @@ module.exports = (req, res, next) => {
     const token = authHeader.split(' ')[1];
 
     jwt.verify(token, config.jwt_secret, (err, user) => {
-      err && res.status(401).send({
+      err && res.status(200).send({
         error: err
       }); 
 
       req.user = user;
-			next();
+			return next();
 		});
   } else {
     res.status(401).send({

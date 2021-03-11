@@ -25,19 +25,12 @@ const init = async () => {
 	await database.sync({ force: true }) // force true will drop the table if it already exists
 	.then(() => {
 		User.create({
+      user_id: '1',
 			firstName: 'Rémy',
 			lastName: 'Groleau',
 			username: 'remleau',
 			email: 'remleau@gmail.com',
 			password: bcrypt.hashSync('allo1234', 8)
-    });
-    
-    User.create({
-      firstName: 'Barry',
-      lastName: 'Allan',
-      username: 'Fastest man alive',
-      email: 'speed@of.light',
-      password: bcrypt.hashSync('allo1234', 8)
     });
 	});
 }

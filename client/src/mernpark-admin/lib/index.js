@@ -1,5 +1,6 @@
 import { axiosInstance } from './axios';
-import { UserProvider, UserContext, authUser, getToken, getAllUsers, addUser, deleteUser } from './userContext';
+import { socketInstance } from './socketIo';
+import { UserProvider, UserContext, authUser, getToken, getAllUsers, addUser, deleteUser, getUserProfile } from './userContext';
 
 export { 
   UserProvider,
@@ -9,5 +10,7 @@ export {
   getAllUsers,
   addUser,
   deleteUser,
+  getUserProfile,
+  socketInstance,
   axiosInstance
 };

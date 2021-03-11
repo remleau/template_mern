@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styles from '../../assets/styles/main.module.css';
 import FormError from '../../components/form';
@@ -6,19 +7,21 @@ import FormError from '../../components/form';
 import Modal from '../../components/modal';
 import PageWrapper from '../../components/pageWrapper';
 
-import { addUser, deleteUser, getAllUsers } from '../../lib';
+import { socketInstance, addUser, deleteUser } from '../../lib';
 
 const Settings = () => {
   const refModalAddUser = useRef();
   const [error, setError] = useState();
   const { register, handleSubmit, errors } = useForm();
   const [users, setUsers] = useState(null);
-
+  
   useEffect(() => {
-    getAllUsers().then((res) => {
-      setUsers(res);
+    socketInstance.emit('getAllUsers');
+
+    socketInstance.on('getAllUsers', data => {
+      setUsers(JSON.parse(data));
     });
-  }, []);
+  }, [])
 
   const meta = {
     pageTitle: "Settings",
@@ -33,21 +36,17 @@ const Settings = () => {
         setError(res.error)
       } else {
         setError(null);
-        setUsers(prevUsers => [...prevUsers, res.user])
+        socketInstance.emit('getAllUsers');
       }
     });
   }
 
   const deleteUserById = (id) => {
     deleteUser(id).then((res) => {
-      let userId = res.userId || false;
+      let userId = res.user_id;
 
       if(userId){
-
-        // Lazy ass shloud filter object
-        getAllUsers().then((res) => {
-          setUsers(res);
-        });
+        socketInstance.emit('getAllUsers');
       }
     });
   }
@@ -152,7 +151,14 @@ const Settings = () => {
                 <td>{users[key].firstName} {users[key].lastName}</td>
                 <td>{users[key].email}</td>
                 <td>{users[key].lastConnexion ?? '-'}</td>
-                <td>Modify | <button className={styles.btnDeleteUser} onClick={() => deleteUserById(users[key].id || false)}>Delete</button></td>
+                <td className={styles.actions}>
+                  <button className={styles.modifyUser}>
+                    <NavLink to={`/admin/user/${users[key].user_id}`} activeClassName={styles.actif}>
+                      Modify
+                    </NavLink>
+                  </button>
+                  <button className={styles.btnDeleteUser} onClick={() => deleteUserById(users[key].user_id)}>Delete</button>
+                </td>
               </tr>
             )
           })}

@@ -24,4 +24,29 @@
       }
     }
   }
+
+  .actions {
+    button {
+      @apply relative outline-none;
+      @apply inline-flex items-center;
+      margin-left: .05rem;
+
+      &:after {
+        @apply relative inline-block bg-mediumGrey mx-2;
+        height: 15px;
+        width: 1px;
+        content: '';
+      }
+
+      &:first-child {
+        @apply ml-0;
+      }
+
+      &:last-of-type {
+        &:after {
+          @apply hidden;
+        }
+      }
+    }
+  }
 }
