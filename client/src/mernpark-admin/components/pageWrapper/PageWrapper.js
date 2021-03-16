@@ -39,9 +39,11 @@ const PageWrapper = ({children, meta, breadcrumb}) => {
                 return (
                   <React.Fragment>
                     <div className={styles.breadcrumbSeparator}>/</div>
-                    <NavLink to={breadcrumb[key].link}>
-                      <div className={styles.breadcrumbItem}>{breadcrumb[key].label}</div>
-                    </NavLink>
+                    <div className={styles.breadcrumbItem}>
+                      <NavLink to={breadcrumb[key].link}>
+                        {breadcrumb[key].label}
+                      </NavLink>
+                    </div>
                   </React.Fragment>
                 )
               })}
