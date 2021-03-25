@@ -5,3 +5,18 @@
 .containerTitles {
   @apply pt-2 pb-5;
 }
+
+
+
+.pageUserProfil,
+.pageAddTrip {
+
+  .formAddUser,
+  .formAddTrip {
+
+    .cta {
+      @apply mt-4 rounded-nl;
+    }
+
+  }
+}

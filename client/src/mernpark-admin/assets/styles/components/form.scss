@@ -34,7 +34,7 @@
     }
 
     button {
-      @apply bg-blue;
+      @apply bg-blue rounded-nl;
       @apply px-8 py-3 mt-2;
       @apply font-semibold text-sm text-white;
     }
@@ -67,5 +67,38 @@
 
   > div {
     width: 49% !important;
+  }
+}
+
+.formDefaultInput,
+.formTitle {
+
+  label {
+    @apply mb-1 flex items-center;
+    
+    svg {
+      @apply mr-2;
+      width: 14px;
+    }
+  }
+
+  input {
+    @apply p-3 px-4 w-full;
+    @apply border-1 border-mediumGrey shadow-sm;
+    @apply bg-white outline-none;
+
+    &:focus {
+      @apply transition-all duration-300;
+      @apply border-darkGrey;
+    }
+  }
+
+}
+
+.formHalf {
+  @apply flex justify-between;
+  
+  > * {
+    width: 49.5%;
   }
 }

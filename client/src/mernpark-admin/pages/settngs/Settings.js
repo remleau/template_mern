@@ -153,7 +153,7 @@ const Settings = () => {
                 <td>{users[key].lastConnexion ?? '-'}</td>
                 <td className={styles.actions}>
                   <button className={styles.modifyUser}>
-                    <NavLink to={`/admin/user/${users[key].user_id}`} activeClassName={styles.actif}>
+                    <NavLink to={`/admin/settings/users/m/${users[key].user_id}`} activeClassName={styles.actif}>
                       Modify
                     </NavLink>
                   </button>

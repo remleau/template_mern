@@ -4,19 +4,31 @@
 }
 
 .main {
-  @apply w-full px-12 py-8;
+  @apply w-full px-10 py-8;
 }
 
-.mainPageTitle {
-  @apply pb-10;
+.firstSection {
+  @apply mb-10 shadow-nl px-6 py-6 bg-lightGrey rounded-md bg-opacity-50;
 
   .mainTitle {
     @apply flex items-center justify-between;
+    
+    h1 {
+      @apply flex items-center justify-between;
+    }
+
+    span:last-child {
+      @apply ml-3 italic text-base text-mediumGrey;
+    }
   }
 
   .mainDescription { 
     p {
       @apply text-sm text-mediumGrey;
+    }
+
+    & + .breadcrumb {
+      @apply mt-3;
     }
   }
 }
@@ -31,4 +43,8 @@
 .containerTitle {
   @apply flex items-center justify-between;
   @apply mb-10 pb-4 border-b-1 border-mediumGrey;
+
+  .cta {
+    @apply rounded-nl
+  }
 }

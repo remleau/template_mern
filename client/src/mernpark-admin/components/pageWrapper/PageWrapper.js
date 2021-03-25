@@ -23,8 +23,17 @@ const PageWrapper = ({children, meta, breadcrumb}) => {
   return (
     <main className={styles.main}>
 
-      <div className={styles.mainPageTitle}>
-        {breadcrumb && 
+      <div className={styles.firstSection}>
+
+        <div className={styles.mainTitle}>
+          <h1 className={styles.h1}>{pageTitle}</h1>
+        </div>
+
+        <div className={styles.mainDescription}>
+          <p>{pageDescription}</p>
+        </div>
+
+        {breadcrumb &&
           <div className={styles.breadcrumb}>
             <div className={styles.breadcrumbPrefix}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +47,11 @@ const PageWrapper = ({children, meta, breadcrumb}) => {
               {Object.keys(breadcrumb).map((item, key) => {
                 return (
                   <React.Fragment>
-                    <div className={styles.breadcrumbSeparator}>/</div>
+                    <div className={styles.breadcrumbSeparator}>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                      </svg>
+                    </div>
                     <div className={styles.breadcrumbItem}>
                       <NavLink to={breadcrumb[key].link}>
                         {breadcrumb[key].label}
@@ -50,16 +63,11 @@ const PageWrapper = ({children, meta, breadcrumb}) => {
             </div>
           </div>
         }
-        <div className={styles.mainTitle}>
-          <h1 className={styles.h1}>{pageTitle}</h1>
-        </div>
-        <div className={styles.mainDescription}>
-          <p>{pageDescription}</p>
-        </div>
+
       </div>
 
       <div className={`${styles.pageDefault} ${styles.[bodyClass]}`}>
-      {children}
+        {children}
       </div>
 
       <Footer />

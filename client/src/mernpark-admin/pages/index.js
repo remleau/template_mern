@@ -21,8 +21,8 @@ const Pages = () => {
         <Route path='/admin' exact component={Dashboard} />
         <Route path='/admin/voyages' exact component={Voyages} />
         <Route path='/admin/voyages/a/:voyage_id' exact component={AddVoyage} />
-        <Route path='/admin/settings' component={Settings} />
-        <Route path='/admin/user/:user_id' exact component={UserProfile} />
+        <Route path='/admin/settings' exact component={Settings} />
+        <Route path='/admin/settings/users/m/:user_id' exact component={UserProfile} />
         <Route path="*" component={Page404} />
       </Switch>
     </div>
